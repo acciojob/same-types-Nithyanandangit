@@ -1,11 +1,17 @@
 function isSameType(value1, value2) {
   //your js code here
-	if(typeof(value1)===typeof(value2) ){
-		return true;
-	}else if(value1==value2){
-	    return true;
-	}
-	return false;
+ // Special case: both values are NaN
+  if (Number.isNaN(value1) && Number.isNaN(value2)) {
+    return true;
+  }
+
+  // If one is NaN and the other is not
+  if (Number.isNaN(value1) || Number.isNaN(value2)) {
+    return false;
+  }
+
+  // Compare types using typeof
+  return typeof value1 === typeof value2;
 }
 
 // // do not change the code below
